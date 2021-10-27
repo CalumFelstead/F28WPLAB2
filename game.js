@@ -4,7 +4,27 @@ function Bear() {
     this.id = this.htmlElement.id;
     this.x = this.htmlElement.offsetLeft;
     this.y = this.htmlElement.offsetTop;
+
+    this.setSpeed = function (speed){
+        this.dBear = speed
+    }
+
+    this.fitBounds = function() {
+        let parent = this.htmlElement.parentElement;
+        let iw = this.htmlElement.offsetWidth;
+        let ih = this.htmlElement.offsetHeight;
+        let l = parent.offsetLeft;
+        let t = parent.offsetTop;
+        let w = parent.offsetWidth;
+        let h = parent.offsetHeight;
+        if (this.x < 0) this.x = 0;
+        if (this.x > w - iw) this.x = w - iw;
+        if (this.y < 0) this.y = 0;
+        if (this.y > h - ih) this.y = h - ih;
+    };
+
     this.move = function(xDir, yDir) {
+        this.fitBounds(); //we add this instruction to keep bear within board
         this.x += this.dBear * xDir;
         this.y += this.dBear * yDir;
         this.display();
@@ -22,6 +42,10 @@ function start() {
 
     // Add an event listener to the keypress event.
     document.addEventListener("keydown", moveBear, false);
+    alert(document.getElementById("bearSpeed"))
+
+    bear.setSpeed(100)
+
 
 }
 
