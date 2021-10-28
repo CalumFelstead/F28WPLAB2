@@ -42,10 +42,9 @@ function start() {
 
     // Add an event listener to the keypress event.
     document.addEventListener("keydown", moveBear, false);
-    alert(document.getElementById("bearSpeed"))
 
-    bear.setSpeed(100)
-
+    var speed = document.getElementById("bearSpeed").value;
+    bear.setSpeed(speed);
 
 }
 
