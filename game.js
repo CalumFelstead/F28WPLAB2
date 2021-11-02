@@ -31,6 +31,7 @@ function Bear() {
         this.y += this.dBear * yDir;
         this.display();
     };
+
     this.display = function() {
         this.htmlElement.style.left = this.x + "px";
         this.htmlElement.style.top = this.y + "px";
@@ -92,6 +93,7 @@ function moveBear(e) {
 
 class Bee {
     constructor(beeNumber) {
+
         //the HTML element corresponding to the IMG of the bee
         this.htmlElement = createBeeImg(beeNumber);
         //iits HTML ID
@@ -182,6 +184,12 @@ function makeBees() {
         bees.push(bee); //add the bee object to the bees array
         i++;
     }
+}
+
+function addBee(){
+    var bee = new Bee(bees.length); //create object and its IMG element
+    bee.display(); //display the bee
+    bees.push(bee); //add the bee object to the bees array
 }
 
 function updateBees() { // update loop for game
