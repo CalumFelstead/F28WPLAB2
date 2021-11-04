@@ -232,6 +232,8 @@ function addBee(){
     var bee = new Bee(bees.length); // Create object and add its IMG element
     bee.display(); // Display the bee
     bees.push(bee); // Add the bee object to the bees array
+
+
 }
 
 /*
@@ -335,4 +337,3 @@ function overlap(element1, element2) {
     }
     return true;
 }
-
